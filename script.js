@@ -1,11 +1,8 @@
-console.log("Jewellery Website Loaded");
-
-const rates = {
-gold22: "₹8,520 / gm",
-gold24: "₹9,290 / gm",
-silver: "₹118 / gm"
-};
-
-document.getElementById("gold22").innerText = rates.gold22;
-document.getElementById("gold24").innerText = rates.gold24;
-document.getElementById("silver").innerText = rates.silver;
+fetch('rates.json')
+.then(r=>r.json())
+.then(data=>{
+document.getElementById('gold22').innerText='₹ '+data.gold22+'/g';
+document.getElementById('gold24').innerText='₹ '+data.gold24+'/g';
+document.getElementById('silver').innerText='₹ '+data.silver+'/g';
+document.getElementById('updated').innerText='Updated: '+data.updated;
+});
